@@ -1,0 +1,27 @@
+nav.navbar.navbar-light.bg-primary
+  ul.nav.navbar-nav(ng-controller='indexController')
+    li.nav-item.pull-xs-left(ng-hide='CommonRole')
+      a.btn.btn-primary(href='/signIn' style="width: 100px;") Sign In
+    li.nav-item.pull-xs-left(ng-hide='CommonRole')
+      a.btn.btn-primary(href='/signUp' style="width: 100px;") Sign Up
+    li.nav-item.pull-xs-left(ng-show='CommonRole')
+      a.btn.btn-primary(href='/signOut' style="width: 100px;") Sign Out
+    li.nav-item
+      form.form-inline.pull-xs-right
+        input.form-control(ng-model='search' type="text" placeholder="Search")
+    li.nav-item.pull-xs-right
+      a.btn.btn-primary(href='/') Home
+    li.nav-item.active(ng-show='CommonRole')
+      a.btn.btn-primary(href='/addPost') Add a new post
+
+div(style="width: 700px;").container
+  h3.h3 Write a new post
+  div(style="width: 660px;").form-group
+    label(for='exampleInputTitle1') Title:
+    input.form-control#exampleInputTitle1(ng-model='form.title' placeholder="title")
+  div.form-group
+    p Body:
+    textarea(ng-model='form.text', cols='80', rows='12')
+  div.form-group
+    button.pull-xs-right.btn.btn-primary(ng-click='submitPost()') Submit Post
+
